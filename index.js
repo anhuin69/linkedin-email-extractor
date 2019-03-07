@@ -106,9 +106,11 @@ async function getEmails(index) {
 async function getEmail(index) {
     if (index < data.length) {
         if (data[index].email) {
-            console.log(`#${index} ${data[index].name} email ${data[index].email} already extracted`);
+            console.log(`✅  #${index} ${data[index].name} email ${data[index].email} already extracted`);
         } else if (data[index].processed_count >= maxProcessTry) {
-            console.log(`#${index} ${data[index].name} failed to extract email ${data[index].processed_count} times`);
+            console.log(
+                `⛔️  #${index} ${data[index].name} failed to extract email ${data[index].processed_count} times`
+            );
         } else {
             data[index].processed_count += 1;
             try {
@@ -136,9 +138,9 @@ async function getEmail(index) {
                         console.error(`#${index} ${data[index].name} email could not be extracted`);
                     }
                 });
-                console.log(`#${index} ${data[index].name} email ${data[index].email} freshly extracted`);
+                console.log(`❌  #${index} ${data[index].name} email ${data[index].email} freshly extracted`);
             } catch (e) {
-                console.error(`#${index} ${data[index].name} unable to extract email`);
+                console.error(`❌  #${index} ${data[index].name} unable to extract email`);
             }
         }
         saveExtractedData();
