@@ -138,7 +138,7 @@ async function getEmail(index) {
                         console.error(`#${index} ${data[index].name} email could not be extracted`);
                     }
                 });
-                console.log(`❌  #${index} ${data[index].name} email ${data[index].email} freshly extracted`);
+                console.log(`✅  #${index} ${data[index].name} email ${data[index].email} freshly extracted`);
             } catch (e) {
                 console.error(`❌  #${index} ${data[index].name} unable to extract email`);
             }
